@@ -1,0 +1,53 @@
+{
+  "title": "GPT Tutor Input Schema Plus v1.0.0",
+  "type": "object",
+  "properties": {
+    "level": {
+      "type": "integer",
+      "enum": [1, 2, 3],
+      "title": "出力レベル",
+      "description": "1=構造中心, 2=応用設計, 3=連携・自動化"
+    },
+    "tone": {
+      "type": "string",
+      "enum": ["カジュアル", "ビジネス", "英語"],
+      "title": "文体指定"
+    },
+    "structure": {
+      "type": "string",
+      "enum": ["構造図", "LP", "API仕様", "多言語LP", "教材構成"],
+      "title": "出力構成"
+    },
+    "format": {
+      "type": "string",
+      "enum": ["markdown", "json", "text"],
+      "title": "出力形式"
+    },
+    "section": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["summary", "explanation", "prompt", "usecase", "tips", "reflection"]
+      },
+      "title": "出力セクション"
+    },
+    "chain": {
+      "type": "boolean",
+      "title": "連鎖出力（Function連携）"
+    },
+    "purpose": {
+      "type": "string",
+      "title": "目的・用途"
+    },
+    "audience": {
+      "type": "string",
+      "title": "対象読者"
+    },
+    "persona": {
+      "type": "string",
+      "title": "職種・属性",
+      "description": "例: 教師, 営業職, 開発者など"
+    }
+  },
+  "required": ["level", "structure", "format"]
+}
